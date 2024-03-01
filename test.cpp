@@ -1,25 +1,22 @@
 #include <bits/stdc++.h>
-#include "./linear_list/link.cpp"
+#include "./stack/link.cpp"
 using namespace std;
 void solve() {
-    LinkList L;
-    initList(L);
-    listInsert(L,1, 3);
-    Display(L);
-    listInsert(L, 1, 5);
-    Display(L);
-    ElemType e;
-    listDelete(L, 1, e);
+    LinkStack S;
+    initStack(S);
+    Push(S, 1);
+    Push(S, 45);
+    int e;
+    GetTop(S, e);
     cout<<e<<endl;
-    Display(L);
-
-    initList(L);
-    listHeaderInsert(L);
-    Display(L);
-
-    initList(L);
-    listTailerInsert(L);
-    Display(L);
+    
+    Pop(S,e);
+    cout<<e<<endl;
+    Pop(S,e);
+    cout<<e<<endl;
+    Push(S, 33);
+    GetTop(S, e);
+    cout<<e<<endl;
     
 }
 int main()
