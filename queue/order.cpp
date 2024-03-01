@@ -43,3 +43,19 @@ bool GetHead(SqQueue Q, ElemType &e) {
     e = Q.data[Q.front];
     return true;
 }
+
+
+// void solve() {
+//     SqQueue Q;
+//     initQueue(Q);
+//     for(int i = 0; i < 10; ++i) {
+//         EnQueue(Q, i);
+//     }
+//     while(!isEmpty(Q)) {
+//         int e;
+//         DeQueue(Q, e);
+//         cout<<e<<' ';
+//     }
+//     cout<<endl;
+    
+// }
