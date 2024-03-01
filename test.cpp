@@ -1,22 +1,18 @@
 #include <bits/stdc++.h>
-#include "./stack/link.cpp"
+#include "./queue/link.cpp"
 using namespace std;
 void solve() {
-    LinkStack S;
-    initStack(S);
-    Push(S, 1);
-    Push(S, 45);
-    int e;
-    GetTop(S, e);
-    cout<<e<<endl;
-    
-    Pop(S,e);
-    cout<<e<<endl;
-    Pop(S,e);
-    cout<<e<<endl;
-    Push(S, 33);
-    GetTop(S, e);
-    cout<<e<<endl;
+    LinkQueue Q;
+    initQueue(Q);
+    for(int i = 0; i < 10; ++i) {
+        EnQueue(Q, i);
+    }
+    while(!isEmpty(Q)) {
+        int e;
+        DeQueue(Q, e);
+        cout<<e<<' ';
+    }
+    cout<<endl;
     
 }
 int main()
