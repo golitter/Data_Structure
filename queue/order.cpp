@@ -4,6 +4,10 @@ using namespace std;
 const int MaxSize = 50;
 typedef int ElemType;
 
+/**
+ * 循环队列是指顺序存储的队列，而不是指逻辑上的循环。
+ * rear，front的值不是固定的。
+*/
 typedef struct {
     ElemType data[MaxSize];
     int front,rear;

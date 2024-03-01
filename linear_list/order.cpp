@@ -3,6 +3,11 @@ using namespace std;
 #define MaxSize 50
 #define ElemType int
 
+/**
+ * 位序与数组下标：
+ *  顺序表中第i个的i范围是 [1, L.length]，是从1开始的
+ *  而对于数组下标来说范围是 [0, L.length - 1]，是从0开始的
+*/
 // 静态分配
 typedef struct {
     ElemType data[MaxSize];
