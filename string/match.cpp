@@ -9,6 +9,8 @@ int plain_match(SString S, SString T) {
     while(i <= S.length && j <= T.length) {
         if(S.ch[i] == T.ch[j]) ++i, ++j;
         else {
+            // 若当前子串匹配失败，则主串指针i指向下一个子串的第一个位置
+            // 模式串j回到第一个位置
             i = i - j + 2;
             j = 1;
         }
