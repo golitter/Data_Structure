@@ -1,19 +1,19 @@
 #include <bits/stdc++.h>
-#include "./queue/link.cpp"
+#include "./string/string.cpp"
 using namespace std;
 void solve() {
-    LinkQueue Q;
-    initQueue(Q);
-    for(int i = 0; i < 10; ++i) {
-        EnQueue(Q, i);
-    }
-    while(!isEmpty(Q)) {
-        int e;
-        DeQueue(Q, e);
-        cout<<e<<' ';
-    }
-    cout<<endl;
-    
+    SString s;
+    char a[] = "abcd test   ";
+    strAssign(s, a);
+    Display(s);
+    SString t;
+    char b[] = "cd";
+    strAssign(t, b);
+    cout<<strIndex(s, t)<<endl;
+    cout<<strCompare(s, t)<<endl;
+
+    strConcat(s, s, t);
+    Display(s);
 }
 int main()
 {
