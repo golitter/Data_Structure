@@ -77,3 +77,18 @@ void Display(SString &S) {
     }
     cout<<endl;;
 }
+
+// void solve() {
+//     SString s;
+//     char a[] = "abcd test   ";
+//     strAssign(s, a);
+//     Display(s);
+//     SString t;
+//     char b[] = "cd";
+//     strAssign(t, b);
+//     cout<<strIndex(s, t)<<endl;
+//     cout<<strCompare(s, t)<<endl;
+
+//     strConcat(s, s, t);
+//     Display(s);
+// }
