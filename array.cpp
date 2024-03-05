@@ -94,7 +94,7 @@ void tridiagonal_array() {
     array<int, 1000> b;
     for(int i = 1; i < 6; ++i) {
         for(int j = 1; j < 6; ++j) {
-            if(i >= j) a[i][j] = i + j, b[ i * (i - 1) / 2 + j - 1] =a[i][j];
+            if(i >= j) a[i][j] = i + j, b[ i * (i - 1) / 2 + j - 1] = a[i][j];
             else a[i][j] = -1;
         }
     }     
