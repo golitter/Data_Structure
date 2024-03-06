@@ -101,8 +101,10 @@ void solve() {
     PostOrderTraverse(T);
     cout<<endl;
 
+    // 求深度
     cout<<"Depth:  "<<treeDepth(T)<<endl;
 
+    // 层次遍历
     levelOrder(T);
     cout<<endl;
 }
