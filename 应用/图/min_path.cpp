@@ -1,7 +1,10 @@
 
-// https://www.luogu.com.cn/record/150827536
 #include <bits/stdc++.h>
 using namespace std;
+
+namespace Dijkstra {
+    // https://www.luogu.com.cn/record/150827536
+
 const int N = 2e5 + 21;
 const int INF = 0x3f3f3f3f;
 using PII = pair<int, int>;
@@ -35,7 +38,42 @@ void solve() {
     }
     for(int i = 1; i <= n; ++i) cout<<dis[i]<<' ';
 }
+}
+
+namespace Floyd {
+    // https://www.luogu.com.cn/record/150829664
+    
+const int INF = 0x3f3f3f3f;
+const int N = 121;
+int g[N][N];
+void solve() {
+    int n,m; cin>>n>>m;
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            g[i][j] = (i == j ? 0 : INF);
+        }
+    }
+    for(int i = 0; i < m; ++i) {
+        int u,v,x; cin>>u>>v>>x;
+        g[u][v] = g[v][u] = min(g[u][v], x);
+    }
+    for(int k = 1; k <= n; ++k) {
+        for(int i = 1; i <= n; ++i) {
+            for(int j = 1; j <= n; ++j) {
+                g[i][j] = min(g[i][j], g[i][k] + g[k][j]);
+            }
+        }
+    }
+    for(int i = 1; i <= n; ++i) {
+        for(int j = 1; j <= n; ++j) {
+            cout<<g[i][j]<<" \n"[j == n];
+        }
+    }
+}
+}
 int main()
 {
-    solve(); return 0;
+    // Dijkstra::solve(); return 0;
+    Floyd::solve(); return 0;
+
 }
