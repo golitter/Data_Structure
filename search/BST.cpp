@@ -3,13 +3,13 @@
 using namespace std;
 using ElemType = int;
 
-struct BNode {
+typedef struct BNode {
     ElemType data;
-    BNode *lchild, *rchild;
+    struct BNode *lchild, *rchild;
 }BiNode, *BiTree;
 
 // 查找
-BNode * search(BiTree T, ElemType key) {
+BiNode* search(BiTree T, ElemType key) {
     while(T != NULL && key != T->data) {
         if(key < T->data) T = T->lchild;
         else T = T->rchild;
@@ -31,7 +31,7 @@ int insert(BiTree &T, ElemType key) {
 }
 
 // 构造
-void creat(BiTree &T, ElemType arr[], int len) {
+void create(BiTree &T, ElemType arr[], int len) {
     T = NULL;
     for(int i = 0; i < len; ++i) {
         insert(T, arr[i]);
