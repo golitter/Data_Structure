@@ -25,8 +25,8 @@ int insert(BiTree &T, ElemType key) {
         T->lchild = T->rchild = NULL;
         return 1;
     }
-    if(k == T->data) return 0; // 二叉排序树中不能有重复的关键字
-    else if(k < T->data) return insert(T->lchild, key);
+    if(key == T->data) return 0; // 二叉排序树中不能有重复的关键字
+    else if(key < T->data) return insert(T->lchild, key);
     else return insert(T->rchild, key);
 }
 
