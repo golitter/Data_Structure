@@ -11,6 +11,16 @@
 // 基数排序是一种非比较排序算法，它是通过分配和收集的过程来实现排序的。
 // 基数排序的核心思想是将整数按位数切割成不同的数字，然后按每个位数分别比较。
 
+/**
+ * 升序
+ * 按权重排列顺序
+ * 从Q_0 ... Q_{r - 1}出来
+ * 
+ * 降序
+ * 从 Q_{r - 1} ... Q_o 出来
+ * ********************************
+*/
+// ***************** 以LSD为例 *********************************
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 12;
@@ -29,14 +39,7 @@ int getSize() {
 int getValLSD(int val, int x) {
     return val / (int)pow(10, x - 1) % 10;
 }
-// MSD
-// int getValMSD(int val, int x) {
-//     int res = val;
-//     for(int i = 1; i <= x - 1; ++i) {
-//         res /= 10;
-//     }
-//     return res % 10;
-// }
+
 
 queue<int> q[N];
 void init() {
@@ -44,7 +47,7 @@ void init() {
         while(q[i].size()) q[i].pop();
     }
 }
-void RadixLSD(int x) {
+void Radix_greater(int x) {
     init();
     for(int i = 0; i < N; ++i) {
         q[getValLSD(arr[i], x)].push(arr[i]);
@@ -57,37 +60,37 @@ void RadixLSD(int x) {
         }
     }
 }
-// void RadixMSD(int x) {
-//     init();
-//     for(int i = 0; i < N; ++i) {
-//         debug(getValMSD(arr[i], x), arr[i]);
-//         q[getValMSD(arr[i], x)].push(arr[i]);
-//     }
-//     int cnt = 0;
-//     for(int i = N - 1; i >= 0; --i) {
-//         while(q[i].size()) {
-//             arr[cnt++] = q[i].front();
-//             q[i].pop();
-//         }
-//     }
-// }
-void RadixSortLSD() {
+void Radix_less(int x) {
+    init();
+    for(int i = 0; i < N; ++i) {
+        // debug(getValLSD(arr[i], x), arr[i]);
+        q[getValLSD(arr[i], x)].push(arr[i]);
+    }
+    int cnt = 0;
+    for(int i = N - 1; i >= 0; --i) {
+        while(q[i].size()) {
+            arr[cnt++] = q[i].front();
+            q[i].pop();
+        }
+    }
+}
+void RadixSort_greater() {
     int ma = getSize();
     for(int i = 1; i <= ma; ++i) {
-        RadixLSD(i);
+        Radix_greater(i);
     }
 }
 
-// void RadixSortMSD() {
-//     int ma = getSize();
-//     for(int i = ma; i >= 1; --i) {
-//         RadixMSD(i);
-//     }
-// }
+void RadixSort_less() {
+    int ma = getSize();
+    for(int i = 1; i <= ma; ++i) {
+        Radix_less(i);
+    }
+}
 int main()
 {
     randm();
-    RadixSortLSD();
+    RadixSort_greater();
     for(int i = 0; i < N; ++i) {
         cout << arr[i] << " ";
     }
@@ -96,13 +99,13 @@ int main()
     }
     cout << endl;
 
-    // randm();
-    // RadixSortMSD();
-    // for(int i = 0; i < N; ++i) {
-    //     cout << arr[i] << " ";
-    // }
-    // for(int i = 1; i < N; ++i) {
-    //     assert(arr[i] >= arr[i - 1]);
-    // }
+    randm();
+    RadixSort_less();
+    for(int i = 0; i < N; ++i) {
+        cout << arr[i] << " ";
+    }
+    for(int i = 1; i < N; ++i) {
+        assert(arr[i] <= arr[i - 1]);
+    }
     return 0;
 }
